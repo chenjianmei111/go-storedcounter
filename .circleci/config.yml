@@ -84,7 +84,7 @@ jobs:
     description: build with Darwin
     macos:
       xcode: "10.0.0"
-    working_directory: ~/go/src/github.com/filecoin-project/go-storage-miner
+    working_directory: ~/go/src/github.com/chenjianmei111/go-storage-miner
     steps:
       - prepare:
           linux: false
@@ -109,14 +109,14 @@ jobs:
             chmod +x /usr/local/bin/jq
       - restore_cache:
           name: restore go mod and cargo cache
-          key: v1-go-deps-{{ arch }}-{{ checksum "~/go/src/github.com/filecoin-project/go-storage-miner/go.sum" }}
+          key: v1-go-deps-{{ arch }}-{{ checksum "~/go/src/github.com/chenjianmei111/go-storage-miner/go.sum" }}
       - install-deps
       - go/mod-download
       - run:
           command: make
       - save_cache:
           name: save cargo cache
-          key: v1-go-deps-{{ arch }}-{{ checksum "~/go/src/github.com/filecoin-project/go-storage-miner/go.sum" }}
+          key: v1-go-deps-{{ arch }}-{{ checksum "~/go/src/github.com/chenjianmei111/go-storage-miner/go.sum" }}
           paths:
             - "~/.rustup"
             - "~/.cargo"
